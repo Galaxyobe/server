@@ -1,0 +1,25 @@
+** Summary of what you entered **
+
+Ethernet Interface: eth0
+User name:          02512332323
+Activate-on-demand: No
+Primary DNS:        114.114.114.114
+Secondary DNS:      223.5.5.5
+Firewalling:        NONE
+User Control:       yes
+Accept these settings and adjust configuration files (y/n)? y
+Adjusting /etc/sysconfig/network-scripts/ifcfg-ppp0
+Adjusting /etc/resolv.conf
+  (But first backing it up to /etc/resolv.conf.bak)
+Adjusting /etc/ppp/chap-secrets and /etc/ppp/pap-secrets
+  (But first backing it up to /etc/ppp/chap-secrets.bak)
+  (But first backing it up to /etc/ppp/pap-secrets.bak)
+
+
+
+Congratulations, it should be all set up!
+
+Type '/sbin/ifup ppp0' to bring up your xDSL link and '/sbin/ifdown ppp0'
+to bring it down.
+Type '/sbin/pppoe-status /etc/sysconfig/network-scripts/ifcfg-ppp0'
+to see the link status.

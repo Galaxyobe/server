@@ -14,6 +14,7 @@ Description:	CentOS release 6.8 (Final)
 Release:	6.8
 Codename:	Final
 ```
+
 > uname -a
 
 ```shell
