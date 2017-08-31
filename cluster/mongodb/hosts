@@ -1,0 +1,11 @@
+# 内网
+192.168.2.10    db10.papersshow.com
+192.168.2.11	db11.papersshow.com
+192.168.2.12	db12.papersshow.com
+119.23.129.43   db.papersshow.com
+
+# 外网
+127.0.0.1       db10.papersshow.com
+127.0.0.1       db11.papersshow.com
+127.0.0.1       db12.papersshow.com
+127.0.0.1       db.papersshow.com
