@@ -39,6 +39,22 @@
     - 使用pm2远程部署
         路径 /var/www/api
 
+## 目录权限配置
+
+查看httpd的运行用户
+
+    > cat /etc/httpd/conf/httpd.conf
+
+* manage_sys
+
+    > sudo mkdir -p /var/www/web/manage_sys
+    > sudo chown -R apache:apache /var/www/web/manage_sys
+
+* zy_api
+
+    > sudo mkdir -p /var/www/web/zy_api
+    > sudo chown -R apache:apache /var/www/web/zy_api
+
 
 ## 系统环境
 
@@ -75,7 +91,7 @@
 * redis
 
 
-## 配置源
+## 1. 配置源
 
 * 安装
 
@@ -91,7 +107,7 @@
     yum --enablerepo=remi install <package-name>
     ```
 
-## 安装mysql
+## 2.安装mysql
 
 ### 安装
 
@@ -127,7 +143,7 @@
     > systemctl enable mysqld.service
 
 
-## 安装apache(httpd)
+## 2.安装apache(httpd)
 
 *  安装
 
@@ -139,11 +155,15 @@
 
 * 重启
 
-    > service httpd start
+    > service httpd restart
 
 * 停止
 
     > service httpd stop
+
+* 状态
+
+    > service httpd status  
 
 * 查看版本
 
@@ -155,12 +175,29 @@
 
     ```
 
-## 安装nginx
+## 2.安装nginx
+
+* 安装
 
     > yum install nginx
 
+* 启动
 
-## 安装php
+    > service nginx start
+
+* 重启
+
+    > service nginx restart
+
+* 停止
+
+    > service nginx stop
+
+* 状态
+
+    > service nginx status  
+
+## 2.安装php
 
 - 指定版本: v5.6
 
@@ -193,7 +230,7 @@
 
         > yum install php-gd --enablerepo=remi,remi-php56
 
-## 安装mongodb
+## 2.安装mongodb
 
 * 配置源
 
@@ -214,12 +251,12 @@
 
     > yum install -y mongodb-org
 
-## 安装redis
+## 2.安装redis
 
     > yum --enablerepo=remi install redis
 
 
-## 安装node.js
+## 2.安装node.js
 
 所需版本: 最新版
 
@@ -231,7 +268,7 @@
 
     > sudo yum -y install nodejs
 
-## 安装pm2
+## 2.安装pm2
 
 * 使用淘宝源
 
@@ -244,7 +281,7 @@
 
 
 
-## 配置
+## 3.配置
 
 
 ### 配置redis
@@ -456,7 +493,7 @@ httpd和php都是以apache用户运行，所以walle的配置的用户也为apac
     > ssh apache@119.23.129.43
 
 
-## walle项目配置
+## 4.walle项目配置
 
 walle运行的用户www-data
 打开walle管理页面，根据项目配置上线环境
@@ -478,7 +515,7 @@ walle运行的用户www-data
 
     webroot和发布版本库必须属于机器列表的apache用户所有
 
-## 部署api
+## 5.部署api
 
 * 参考api的README.md
 
