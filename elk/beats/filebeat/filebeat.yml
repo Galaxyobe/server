@@ -1,0 +1,38 @@
+######################## Filebeat Configuration ############################
+
+# This file is a full configuration example documenting all non-deprecated
+# options in comments. For a shorter configuration example, that contains only
+# the most common options, please see filebeat.yml in the same directory.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+
+
+
+
+#=========================== Filebeat prospectors =============================
+filebeat.prospectors:
+
+- input_type: log
+  enabled: true
+  paths:
+    - /home/obe/Documents/space/go/src/me.com/crack/bin/client/out.log
+  document_type: crack
+
+
+#-------------------------- Elasticsearch output -------------------------------
+output.elasticsearch:
+  enabled: true
+
+  hosts: ["192.168.2.8:9200"]
+  indices:
+    - index: crack-%{+yyyy.MM.dd}
+      when.contains:
+        app: crack
+
+
+#----------------------------- Console output ---------------------------------
+output.console:
+  enabled: true
+
+  pretty: true

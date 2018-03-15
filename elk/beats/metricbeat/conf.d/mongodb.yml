@@ -1,0 +1,20 @@
+#==========================  Modules configuration ============================
+metricbeat.modules:
+#------------------------------- MongoDB Module ------------------------------
+- module: mongodb
+  metricsets: ["dbstats", "status"]
+  enabled: true
+  period: 30s
+
+  # The hosts must be passed as MongoDB URLs in the format:
+  # [mongodb://][user:pass@]host[:port].
+  # The us.6ername and password can also be set using the respective configuration
+  # options. The credentials in the URL take precedence over the username and
+  # password configuration options.
+  hosts: ["localhost:27017"]
+
+  # Username to use when connecting to MongoDB. Empty by default.
+  username: root
+
+  # Password to use when connecting to MongoDB. Empty by default.
+  password: root#65535
